@@ -20,12 +20,12 @@ const CourseDetails = () => {
                     Exam Sehedule:
                 </div>
                 <div className='col-span-12 md:col-span-8 text-green-500'>
-                    <Label className='text-base leading-normal'>
+                    <p className='text-base leading-normal'>
                         Start Exam - 30th apr, 2024/ 8:00pm
-                    </Label>
-                    <Label className='text-base leading-normal'>
+                    </p>
+                    <p className='text-base leading-normal'>
                         End Exam - 31th apr, 2024/ 11:59pm
-                    </Label>
+                    </p>
                 </div>
             </div>
             <Label className='text-red text-base'>
