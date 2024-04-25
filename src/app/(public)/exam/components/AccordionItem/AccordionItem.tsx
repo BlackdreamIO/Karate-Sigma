@@ -1,7 +1,6 @@
 'use client';
 
-import { Icons } from '@/components';
-import React, { useState, FC } from 'react';
+import React, { FC } from 'react';
 import { motion } from 'framer-motion';
 
 import {
@@ -18,12 +17,7 @@ interface IProps {
     className?: string;
 }
 
-const AccordionItem: FC<IProps> = ({
-    title,
-    children,
-    itemActive,
-    className
-}) => {
+const AccordionItem: FC<IProps> = ({ title, children, className }) => {
     return (
         <motion.div
             className='w-full'
