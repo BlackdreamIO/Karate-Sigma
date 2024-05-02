@@ -9,15 +9,6 @@ import { useEffect, useState } from 'react';
 
 const TheHeader = () => {
     const [isShowMobileMenu, setIsShowMobileMenu] = useState(false);
-    useEffect(() => {
-        const bodyEl = document.querySelector('body');
-
-        if (isShowMobileMenu) {
-            bodyEl && bodyEl.classList.add('modal-open');
-        } else {
-            bodyEl && bodyEl.classList.remove('modal-open');
-        }
-    }, [isShowMobileMenu]);
 
     return (
         <header className='sticky top-0 z-50 pt-3 bg-primary-500 shadow-sm'>
@@ -61,20 +52,29 @@ const TheHeader = () => {
                 </div>
             </div>
 
+            <div className={`container sticky top-0 z-50 flex items-center justify-between h-16 bg-primary-500 rounded-full lg:hidden backdrop-blur-sm
+            ${isShowMobileMenu ? 'border-b-[2px]' : ''} `}>
+                <div></div>
+                <Logo className='!h-10 !w-auto' />
+
+                <Button
+                    onClick={() =>
+                        setIsShowMobileMenu(isShowMobileMenu ? false : true)
+                    }
+                    variant={'ghost'}
+                    className='no-underline rounded-md !bg-transparent p-0'
+                >
+                    {isShowMobileMenu ? (
+                        <Icons.X className='fill-white' />
+                    ) : (
+                        <Icons.Hamburger className='fill-white' />
+                    )}
+                </Button>
+            </div>
+
             {/* Mobile menu */}
             {!isShowMobileMenu ? (
-                <div className='container sticky top-0 z-50 flex items-center justify-between h-16 bg-primary-500 rounded-full lg:hidden backdrop-blur-sm'>
-                    <div></div>
-                    <Logo className='!h-10 !w-auto' />
-
-                    <Button
-                        onClick={() => setIsShowMobileMenu(true)}
-                        variant={'ghost'}
-                        className='no-underline rounded-md !bg-transparent p-0'
-                    >
-                        <Icons.Hamburger className='fill-white' />
-                    </Button>
-                </div>
+                <div></div>
             ) : (
                 <div className='sticky top-0 left-0 block w-full lg:hidden '>
                     <div className=''>
